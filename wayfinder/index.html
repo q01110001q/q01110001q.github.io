@@ -10,8 +10,11 @@
   <body>
     <!-- <model-viewer> HTML element -->
  <div class="button-container">
+    <button class="model-select" onclick="switchModel('TypeA1')">View A1</button>
     <button class="model-select" onclick="switchModel('TypeA2')">View A2</button>
+    <button class="model-select" onclick="switchModel('TypeA3')">View A3</button>
     <button class="model-select" onclick="switchModel('TypeB1')">View B1</button>
+    <button class="model-select" onclick="switchModel('TypeB2')">View B2</button>
   </div>
     <model-viewer src="TypeB1.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="TypeA2Poster.png" shadow-intensity="1" camera-orbit="-45.97deg 67.26deg 3.792m" field-of-view="30deg" auto-rotate id="modelViewer">
       <div class="progress-bar hide" slot="progress-bar">
