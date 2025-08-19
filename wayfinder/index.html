@@ -8,35 +8,51 @@
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
   </head>
   <body>
-    <!-- <model-viewer> HTML element -->
- <div class="button-container">
-    <button class="model-select" onclick="switchModel('TypeA1')">View A1</button>
-    <button class="model-select" onclick="switchModel('TypeA2')">View A2</button>
-    <button class="model-select" onclick="switchModel('TypeA3')">View A3</button>
-    <button class="model-select" onclick="switchModel('TypeB1')">View B1</button>
-    <button class="model-select" onclick="switchModel('TypeB2')">View B2</button>
-  </div>
-    <model-viewer src="TypeB1.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="B1poster.png" shadow-intensity="1" camera-orbit="-45.97deg 67.26deg 3.792m" field-of-view="30deg" auto-rotate id="modelViewer">
+    <!-- Button controls (make sure they are NOT inside <model-viewer>) -->
+    <div class="button-container">
+      <button class="model-select" onclick="switchModel('TypeA1')">View A1</button>
+      <button class="model-select" onclick="switchModel('TypeA2')">View A2</button>
+      <button class="model-select" onclick="switchModel('TypeA3')">View A3</button>
+      <button class="model-select" onclick="switchModel('TypeB1')">View B1</button>
+      <button class="model-select" onclick="switchModel('TypeB2')">View B2</button>
+    </div>
+
+    <!-- Model Viewer -->
+    <model-viewer 
+      src="TypeB1.glb" 
+      ar 
+      ar-modes="webxr scene-viewer quick-look" 
+      camera-controls 
+      tone-mapping="neutral" 
+      poster="B1poster.png" 
+      shadow-intensity="1" 
+      camera-orbit="-45.97deg 67.26deg 3.792m" 
+      field-of-view="30deg" 
+      auto-rotate 
+      id="modelViewer">
+
       <div class="progress-bar hide" slot="progress-bar">
-          <div class="update-bar"></div>
+        <div class="update-bar"></div>
       </div>
+
       <button slot="ar-button" id="ar-button">
-          View in your space
+        View in your space
       </button>
+
       <div id="ar-prompt">
-          <img src="ar_hand_prompt.png">
+        <img src="ar_hand_prompt.png">
       </div>
     </model-viewer>  
-    <script src="script.js"></script>
-    <!-- Loads <model-viewer> for browsers: -->
 
-<script>
-  function switchModel(modelName) {
-    const viewer = document.getElementById('modelViewer');
-    viewer.setAttribute('src', `${modelName}.glb`);
-    viewer.setAttribute('poster', `${modelName}.png`);
-  }
-</script>
+    <script>
+      function switchModel(modelName) {
+        const viewer = document.getElementById('modelViewer');
+        viewer.setAttribute('src', ${modelName}.glb);
+        viewer.setAttribute('poster', ${modelName}.png);
+      }
+    </script>
+
+    <!-- Loads <model-viewer> for browsers -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
   </body>
 </html>
